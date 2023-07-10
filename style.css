@@ -7,9 +7,11 @@
 :root {
     --ff-header: 'Staatliches', cursive;
     --ff-text: 'Palanquin', sans-serif;
+    --ff-text-desktop: 'Roboto', sans-serif;
+    --ff-footer: 'Open Sans', sans-serif;
 
     --bg-header: #8e9aaf;
-    --bg-main: #f0f1ff;
+    --bg-main: #EFF1FF;
     --bc-header: #fff;
     --bc-primary: #23053a;
     --bc-secondary: #4a4e69;
@@ -17,22 +19,19 @@
     --bc-h3: #FEEAFA;
 
     font-size: 62.5%;
-    --fs-body: 2rem;
-    --fs-header: 4rem;
+    --fs-p: 2rem;
+    --fs-h1: 4rem;
     --fs-card: 2rem;
+    --fs-h1-desktop: 4.8rem;
+    --fs-p-desktop: 2.4rem;
+    --fs-footer: 1.4rem;
 }
 
 body {
-    font-family: var(--ff-text);
-
     background-color: var(--bg-main);
-    color: var(--bc-primary);
-
-    font-size: var(--fs-body);
 }
 
 .page {
-    max-width: clamp(33rem, 30rem + 60vw, 117rem);
     margin: 0 auto;
 }
 
@@ -53,7 +52,7 @@ body::before {
 }
 
 header {
-    margin: 3.2rem 0 2.9rem;
+    margin-top: 3.2rem;
     font-family: var(--ff-header);
 
     text-align: center;
@@ -67,7 +66,7 @@ header img {
 
 header h1 {
     font-weight: 400;
-    font-size: var(--fs-header);
+    font-size: var(--fs-h1);
     line-height: 3.4rem;
     letter-spacing: 0.05em;
 
@@ -75,26 +74,40 @@ header h1 {
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 
     background-color: var(--bc-h1);
-
-    height: 4.9rem;
+    padding: 0.8rem 0;
+    margin-bottom: 2.9rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-main {
-    padding: 1.4rem 3.2rem 6.0rem;
-}
+header p {
+    font-family: var(--ff-text);
 
-main p {
+    color: var(--bc-primary);
+
+    font-size: var(--fs-p);
+
     text-align: center;
+    padding: 2.8rem 3.2rem 0;
     margin-bottom: 7rem;
 }
 
-.card {
+main {
+    padding: 0 3.2rem 3.2rem;
+}
+
+.desktop {
+    display: none;
+}
+
+.mobile {
     display: flex;
     justify-content: right;
+}
+
+.card {
     margin-bottom: 3.2rem;
 }
 
@@ -104,8 +117,7 @@ main p {
 
 .card h3 {
     position: absolute;
-    width: 11.2rem;
-    height: 3.5rem;
+    padding: 0.2rem 2.3rem;
 
     background-color: var(--bc-h3);
     border-radius: 20px;
@@ -125,6 +137,10 @@ main p {
     z-index: 1;
 
     animation: topdown 700ms;
+}
+
+footer {
+    display: none;
 }
 
 @keyframes downtop {
@@ -148,5 +164,117 @@ main p {
     100% {
         opacity: 1;
         transform: translateY(0px)
+    }
+}
+
+@media (min-width: 769px) {
+    body {
+        background-color: var(--bc-header);
+    }
+
+    body::before {
+        height: 100%;
+        width: 37.7rem;
+    }
+
+    .page {
+        margin: 0;
+        display: flex;
+    }
+
+    header {
+        width: 37.7rem;
+        margin: 0;
+    }
+
+    header img {
+        width: 16.7rem;
+        height: 16.7rem;
+        margin: 3.2rem 0;
+    }
+    
+    header h1 {
+        width: 37.7rem;
+
+        font-size: var(--fs-h1-desktop);
+
+        padding: 2rem 0;
+    }
+
+    header p {
+        color: var(--bc-header);
+        padding: 0 5.4rem;
+
+        font-family: var(--ff-text-desktop);
+        font-size: var(--fs-p-desktop);
+    }
+
+    main img {
+        width: 220px;
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+        padding: 6.4rem 9.8rem 5rem;
+    }
+
+    .card-wrapper {
+        display: grid;
+    	grid-template-areas: 
+        "A B C" 
+        "D B F" 
+        "D E F";
+        gap: 3.2rem;
+        justify-content: center;
+    }
+
+    .card {
+        display: flex;
+        margin: 0;
+    }
+
+    .card-wrapper div:nth-child(1) {
+        grid-area: A;
+    }
+
+    .card-wrapper div:nth-child(2) {
+        grid-area: B;
+    }
+
+    .card-wrapper div:nth-child(3) {
+        grid-area: C;
+    }
+
+    .card-wrapper div:nth-child(4) {
+        grid-area: D;
+    }
+
+    .card-wrapper div:nth-child(5) {
+        grid-area: E;
+    }
+
+    .card-wrapper div:nth-child(6) {
+        grid-area: F;
+    }
+    
+    .card h3 {
+        display: none;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+
+        font-family: var(--ff-footer);
+        font-size: var(--fs-footer);
+        line-height: 2.8rem;
+        color: var(--bc-secondary);
+
+        margin-top: 5rem;
+    }
+
+    footer span {
+        font-weight: bold;
     }
 }

@@ -3,4 +3,6 @@ Projeto do curso Explorer da Rocketseat, tendo como objetivo recriar o layout de
 - Mobile First;
 - Unidade de medida flexível;
 - Variáveis;
-- Animações simples.
+- Animações e transições;
+- Grid;
+- Media queries.

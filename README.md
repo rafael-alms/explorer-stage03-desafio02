@@ -6,3 +6,5 @@ Projeto do curso Explorer da Rocketseat, tendo como objetivo recriar o layout de
 - Animações e transições;
 - Grid;
 - Media queries.
+
+Deploy da aplicação: https://rafael-alms.github.io/explorer-stage03-desafio02/
